@@ -1,4 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import {
+    TweenMax,
+    TimelineMax,
+    Power2,
+    Expo,
+    Sine,
+    Circ,
+    CSSPlugin,
+} from "gsap/all";
+
 import "./App.scss";
 
 // svgs
@@ -11,6 +21,9 @@ import NoVolume from "./svgs/novolume.svg";
 import LowVolume from "./svgs/lowvolume.svg";
 import Pause from "./svgs/pause.svg";
 import Playlisticon from "./svgs/playlisticon.svg";
+import Waves from "./svgs/waves.svg";
+import TopWaves from "./svgs/topwaves.svg";
+import OpenedPlaylist from "./svgs/openedplaylist.svg";
 
 // images
 import img1 from "./images/img1.jpg";
@@ -94,8 +107,10 @@ function App() {
         },
     ]);
 
+    // selectedMusic state
     const [selectedMusic, setSelectedMusic] = useState(tracks[0]);
 
+    // refering elements
     var audio = useRef(null);
     var trackSliderElement = useRef(null);
     var volumeSlider = useRef(null);
@@ -110,6 +125,7 @@ function App() {
         trackSliderElement.current.value = 0;
     };
 
+    // side effects when change selectedMusic state
     useEffect(() => {
         const targets = playlistInterface.current.childNodes;
 
@@ -141,26 +157,61 @@ function App() {
         }
     };
 
+    var clicked = 0;
+
     return (
         <div className="globalBox">
-            <div className="sendfilesInterface"></div>
-
+            <img src={Waves} id="waves" />
+            <img src={TopWaves} id="topWaves" />
             <div className="interface">
                 <div className="playlistBtn">
-                    <img
+                    <button
                         onClick={() => {
-                            if (
-                                playlistInterface.current.style.height == "0px"
-                            ) {
-                                playlistInterface.current.style.height =
-                                    "550px";
+                            var tl = new TimelineMax();
+
+                            if (clicked == 1) {
+                                clicked = 0;
+                                tl.to(".initialText", 0.7, {
+                                    ease: Expo.easeOut,
+                                    xPercent: 100,
+                                })
+                                    .to(".aroundPlaylistInterface", 0.7, {
+                                        ease: Sine.easeOut,
+                                        xPercent: 0,
+                                    })
+                                    .to(".playlistInterface", 0.4, {
+                                        height: 550,
+                                        ease: Power2.ease,
+                                    });
+
+                                document.querySelector(
+                                    ".playlistBtn img"
+                                ).src = OpenedPlaylist;
+
                                 return;
                             }
 
-                            playlistInterface.current.style.height = "0px";
+                            clicked = 1;
+                            tl.to(".playlistInterface", 0.5, {
+                                height: 500,
+                                ease: Power2.ease,
+                            })
+                                .to(".aroundPlaylistInterface", 0.5, {
+                                    ease: Power2.easeInOut,
+                                    xPercent: -155,
+                                })
+                                .to(".initialText", 0.7, {
+                                    ease: Circ.easeOut,
+                                    xPercent: -200,
+                                });
+
+                            document.querySelector(
+                                ".playlistBtn img"
+                            ).src = Playlisticon;
                         }}
-                        src={Playlisticon}
-                    />
+                    >
+                        <img src={OpenedPlaylist} />
+                    </button>
                 </div>
                 <div className="musicImg">
                     <img src={selectedMusic.imgPath} />
@@ -346,6 +397,21 @@ function App() {
                             </div>
                         );
                     })}
+                </div>
+            </div>
+
+            <div className="initialText">
+                <h1>Download Now</h1>
+                <p>Amazing, fast, beautiful, light.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                <h3>
+                    Enjoy <span>Grubbles</span>!
+                </h3>
+
+                <div className="badges">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1280px-Download_on_the_App_Store_Badge.svg.png" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1280px-Google_Play_Store_badge_EN.svg.png" />
                 </div>
             </div>
         </div>
