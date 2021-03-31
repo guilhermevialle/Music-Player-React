@@ -12,7 +12,7 @@
 -   With playlist / Select musics
 -   Add your musics - _working yet..._
 
-### Previews
+### Preview
 
 -   #### Usage
 
