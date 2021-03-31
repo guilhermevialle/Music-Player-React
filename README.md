@@ -9,7 +9,7 @@
 -   Cool design
 -   Lite
 -   Reactive
--   Select musics
+-   With playlist / Select musics
 -   Add your musics - _working yet..._
 
 ### Preview
