@@ -20,7 +20,7 @@
 
 -   #### Page
 
-    <img src="./media/Screenshots/capture.png" width="460px">
+    <img src="./media/Screenshots/capture.png">
 
 -   #### Player interface and controls
 
