@@ -14,35 +14,15 @@
 
 ### Preview
 
--   #### Usage
+-   #### Demonstration
 
     ![App usage](./media/gifs/gif.gif)
 
--   #### Page
+----
 
-    <img src="./media/Screenshots/capture.png"  width="959px">
+## 🔗 Social media
 
--   #### Player interface and controls
-
-    <img src="./media/Screenshots/capture2.png" width="460px">
-
--   #### You can slide for as long as you want
-
-    <img src="./media/Screenshots/capture3.png" width="460px">
-
--   #### The song that is playing has a mark as shown in the image
-
-    <img src="./media/Screenshots/capture6.png" width="460px">
-
--   #### Download the App on store
-
-    <img src="./media/Screenshots/capture5.png" width="460px">
-
-    ### About copy
-
--   #### All copyrights reserved
-
-    ### Social Media
-
--   https://twitter.com/guivialle
--   https://www.instagram.com/guilherme.vialle/
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/guilhermevialle/MyPortfolio-GuilhermeVialle)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/guivialle)
+[![twitter](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/guilherme.vialle/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-vialle-4b1a9820a/)
